@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Sljux/bowling/issues"
   },
-  "homepage": "https://github.com/Sljux/bowling#readme"
+  "homepage": "https://github.com/Sljux/bowling#readme",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
 }
