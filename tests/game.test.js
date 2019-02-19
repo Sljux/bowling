@@ -3,6 +3,12 @@ const { createGame } = require('../src/game');
 describe('Bowling game', () => {
   let game;
 
+  function makeMultipleSameRolls(rolls, pins) {
+    for (let i = 0; i < rolls; i++) {
+      game.roll(pins);
+    }
+  }
+
   beforeEach(() => {
     game = createGame();
     expect(game).toBeDefined();
@@ -21,11 +27,15 @@ describe('Bowling game', () => {
   describe('scoring games', () => {
 
     test('gutter game should be scored 0', () => {
-      for (let i = 0; i < 20; i++) {
-        game.roll(0);
-      }
+      makeMultipleSameRolls(20, 0);
 
       expect(game.score()).toEqual(0);
+    });
+
+    test('game with 1 pin in each roll', () => {
+      makeMultipleSameRolls(20, 1);
+
+      expect(game.score()).toEqual(20);
     });
 
   });
