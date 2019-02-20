@@ -23,6 +23,18 @@ describe('Bowling game', () => {
       expect(calculateScore(pins)).toEqual(20);
     });
 
+    test('game with 1 spare', () => {
+      const pins = [7, 3, 5, ...multipleSameRolls(17, 0)];
+
+      expect(calculateScore(pins)).toEqual(20);
+    });
+
+    test('game with 2 spares', () => {
+      const pins = [7, 3, 6, 4, 3, ...multipleSameRolls(15, 0)];
+
+      expect(calculateScore(pins)).toEqual(32);
+    });
+
   });
 
 });
