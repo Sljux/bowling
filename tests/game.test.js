@@ -29,10 +29,28 @@ describe('Bowling game', () => {
       expect(calculateScore(pins)).toEqual(20);
     });
 
-    test('game with 2 spares', () => {
+    test('game with 2 consecutive spares', () => {
       const pins = [7, 3, 6, 4, 3, ...multipleSameRolls(15, 0)];
 
       expect(calculateScore(pins)).toEqual(32);
+    });
+
+    test('game with 1 strike', () => {
+      const pins = [10, 5, 6, ...multipleSameRolls(16, 0)];
+
+      expect(calculateScore(pins)).toEqual(32);
+    });
+
+    test('game with 2 consecutive strikes', () => {
+      const pins = [10, 10, 2, ...multipleSameRolls(16, 0)];
+
+      expect(calculateScore(pins)).toEqual(36);
+    });
+
+    test('perfect game', () => {
+      const pins = multipleSameRolls(21, 10);
+
+      expect(calculateScore(pins)).toEqual(300);
     });
 
   });

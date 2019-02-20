@@ -3,11 +3,13 @@ module.exports.calculateScore = function calculateScore(pins) {
   let pinIndex = 0;
 
   for (let frame = 0; frame < 10; frame++) {
-    const firstRoll  = pins[pinIndex];
-    const secondRoll = pins[pinIndex + 1];
+    if (pins[pinIndex] === 10) {
+      score += 10 + pins[pinIndex + 1] + pins[pinIndex + 2];
+      pinIndex++;
+      continue;
+    }
 
-    const frameScore = firstRoll + secondRoll;
-
+    const frameScore = pins[pinIndex] + pins[pinIndex + 1];
     score += frameScore;
 
     if (frameScore === 10) {
