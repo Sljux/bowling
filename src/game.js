@@ -1,17 +1,3 @@
-class BowlingGame {
-  constructor() {
-    this.points = 0;
-  }
-
-  roll(pins) {
-    this.points += pins;
-  }
-
-  score() {
-    return this.points;
-  }
-}
-
-module.exports.createGame = function createGame() {
-  return new BowlingGame();
+module.exports.calculateScore = function calculateScore(pins) {
+  return pins.reduce((sum, num) => sum + num, 0);
 };
