@@ -2,7 +2,7 @@
   "name": "bowling",
   "version": "1.0.0",
   "description": "bowling-game",
-  "main": "index.js",
+  "main": "src/game.js",
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --watch"
